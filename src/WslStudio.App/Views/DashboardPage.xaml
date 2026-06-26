@@ -17,23 +17,15 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <StackPanel Grid.Row="0" Spacing="8">
-                <TextBlock Style="{StaticResource PageSubtitleTextBlockStyle}" Text="{Binding Subtitle}" />
-            </StackPanel>
+            <controls:SectionHeader Grid.Row="0" Description="{Binding Subtitle}" />
 
-            <StackPanel
+            <controls:LoadingState
                 Grid.Row="1"
                 x:Name="LoadingState"
                 x:Load="{x:Bind ViewModel.IsLoading, Mode=OneWay}"
-                HorizontalAlignment="Center"
-                Spacing="12">
-                <ProgressRing IsActive="{x:Bind ViewModel.IsLoading, Mode=OneWay}" />
-                <TextBlock
-                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                    Text="Loading WSL overview..." />
-            </StackPanel>
+                Message="Loading WSL overview..." />
 
-            <controls:InfoCard
+            <controls:EmptyState
                 Grid.Row="1"
                 x:Name="EmptyState"
                 x:Load="{x:Bind ViewModel.IsEmpty, Mode=OneWay}"
@@ -41,13 +33,12 @@
                 Description="WSL did not report any installed distributions. This dashboard only shows real read-only data returned by WSL."
                 Icon="Library" />
 
-            <controls:InfoCard
+            <controls:ErrorState
                 Grid.Row="1"
                 x:Name="ErrorState"
                 x:Load="{x:Bind ViewModel.HasError, Mode=OneWay}"
                 Title="Dashboard overview could not load"
-                Description="{x:Bind ViewModel.ErrorMessage, Mode=OneWay}"
-                Icon="Important" />
+                Message="{x:Bind ViewModel.ErrorMessage, Mode=OneWay}" />
 
             <Grid
                 Grid.Row="1"
@@ -69,24 +60,10 @@
                     </ItemsRepeater.Layout>
                     <ItemsRepeater.ItemTemplate>
                         <DataTemplate x:DataType="viewModels:OverviewCardViewModel">
-                            <Border Style="{StaticResource CardBorderStyle}">
-                                <StackPanel Spacing="8">
-                                    <TextBlock
-                                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                        Text="{x:Bind Title}"
-                                        TextWrapping="Wrap" />
-                                    <TextBlock
-                                        FontSize="28"
-                                        FontWeight="SemiBold"
-                                        Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                                        Text="{x:Bind Value}"
-                                        TextWrapping="Wrap" />
-                                    <TextBlock
-                                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                        Text="{x:Bind Description}"
-                                        TextWrapping="Wrap" />
-                                </StackPanel>
-                            </Border>
+                            <controls:StatCard
+                                Title="{x:Bind Title}"
+                                Value="{x:Bind Value}"
+                                Description="{x:Bind Description}" />
                         </DataTemplate>
                     </ItemsRepeater.ItemTemplate>
                 </ItemsRepeater>
@@ -120,17 +97,16 @@
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
 
-                            <TextBlock Style="{StaticResource SectionTitleTextBlockStyle}" Text="WSL environment" />
+                            <controls:SectionHeader Title="WSL environment" />
                             <TextBlock
                                 Grid.Row="1"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                 Text="{x:Bind ViewModel.WslStatus, Mode=OneWay}"
                                 TextWrapping="Wrap" />
 
-                            <TextBlock
+                            <controls:SectionHeader
                                 Grid.Column="1"
-                                Style="{StaticResource SectionTitleTextBlockStyle}"
-                                Text="WSL version" />
+                                Title="WSL version" />
                             <TextBlock
                                 Grid.Row="1"
                                 Grid.Column="1"
@@ -162,11 +138,9 @@
                     </Border>
 
                     <StackPanel Grid.Column="1" Spacing="6">
-                        <TextBlock Style="{StaticResource SectionTitleTextBlockStyle}" Text="Read-only preview" />
-                        <TextBlock
-                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                            Text="The dashboard uses official read-only WSL commands. Lifecycle actions and destructive operations are intentionally not available here."
-                            TextWrapping="Wrap" />
+                        <controls:SectionHeader
+                            Title="Read-only preview"
+                            Description="The dashboard uses official read-only WSL commands. Lifecycle actions and destructive operations are intentionally not available here." />
                     </StackPanel>
                 </Grid>
             </Border>

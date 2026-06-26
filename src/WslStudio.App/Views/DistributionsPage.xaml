@@ -16,19 +16,13 @@
                 <TextBlock Style="{StaticResource PageSubtitleTextBlockStyle}" Text="{Binding Subtitle}" />
             </StackPanel>
 
-            <StackPanel
+            <controls:LoadingState
                 Grid.Row="1"
                 x:Name="LoadingState"
                 x:Load="{x:Bind ViewModel.IsLoading, Mode=OneWay}"
-                HorizontalAlignment="Center"
-                Spacing="12">
-                <ProgressRing IsActive="{x:Bind ViewModel.IsLoading, Mode=OneWay}" />
-                <TextBlock
-                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                    Text="Loading distributions..." />
-            </StackPanel>
+                Message="Loading distributions..." />
 
-            <controls:InfoCard
+            <controls:EmptyState
                 Grid.Row="1"
                 x:Name="EmptyState"
                 x:Load="{x:Bind ViewModel.IsEmpty, Mode=OneWay}"
@@ -36,13 +30,12 @@
                 Description="WSL did not report any installed distributions. This page only shows real read-only data returned by WSL."
                 Icon="Library" />
 
-            <controls:InfoCard
+            <controls:ErrorState
                 Grid.Row="1"
                 x:Name="ErrorState"
                 x:Load="{x:Bind ViewModel.HasError, Mode=OneWay}"
                 Title="Distribution discovery could not complete"
-                Description="{x:Bind ViewModel.ErrorMessage, Mode=OneWay}"
-                Icon="Important" />
+                Message="{x:Bind ViewModel.ErrorMessage, Mode=OneWay}" />
 
             <ListView
                 Grid.Row="1"
@@ -68,11 +61,7 @@
                     <DataTemplate x:DataType="viewModels:DistributionListItemViewModel" xmlns:viewModels="using:WslStudio.App.ViewModels">
                         <Border
                             Margin="0,4"
-                            Padding="16"
-                            Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-                            BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                            BorderThickness="1"
-                            CornerRadius="8">
+                            Style="{StaticResource CompactCardBorderStyle}">
                             <Grid ColumnSpacing="16">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="2*" />
@@ -93,16 +82,9 @@
                                     Grid.Column="2"
                                     Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                     Text="{x:Bind Version}" />
-                                <Border
+                                <controls:StatusBadge
                                     Grid.Column="3"
-                                    Padding="10,4"
-                                    Background="{ThemeResource SubtleFillColorSecondaryBrush}"
-                                    CornerRadius="6">
-                                    <TextBlock
-                                        FontSize="12"
-                                        Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                                        Text="{x:Bind DefaultStatus}" />
-                                </Border>
+                                    Text="{x:Bind DefaultStatus}" />
                             </Grid>
                         </Border>
                     </DataTemplate>
