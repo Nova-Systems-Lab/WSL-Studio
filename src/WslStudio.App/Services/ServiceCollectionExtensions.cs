@@ -15,7 +15,10 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<INavigationService, NavigationService>();
         services.AddSingleton<ICommandRunner, ProcessCommandRunner>();
         services.AddSingleton<IWslDistributionParser, WslDistributionParser>();
+        services.AddSingleton<IWslStatusParser, WslStatusParser>();
+        services.AddSingleton<IWslVersionParser, WslVersionParser>();
         services.AddTransient<IWslDistributionDiscoveryService, WslDistributionDiscoveryService>();
+        services.AddTransient<IWslDashboardOverviewService, WslDashboardOverviewService>();
 
         services.AddTransient<DashboardViewModel>();
         services.AddTransient<DistributionsViewModel>();
