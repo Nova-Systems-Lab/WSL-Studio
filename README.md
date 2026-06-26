@@ -1,19 +1,34 @@
 # WSL Studio
 
-![Status](https://img.shields.io/badge/status-planning-blue)
+![Status](https://img.shields.io/badge/status-active%20development-success)
 ![Platform](https://img.shields.io/badge/platform-Windows%2011-blue)
+![Framework](https://img.shields.io/badge/.NET-10-purple)
 ![License](https://img.shields.io/badge/license-MIT-green)
-![Phase](https://img.shields.io/badge/phase-0-lightgrey)
+![Development](https://img.shields.io/badge/development-Phase%203-orange)
 
-WSL Studio is a planned Windows desktop application for managing Windows Subsystem for Linux (WSL) distributions from a native Windows 11 interface.
+WSL Studio is an open-source native Windows 11 application for managing Windows Subsystem for Linux (WSL) through a modern WinUI 3 interface.
 
-The project is currently in Phase 0. No application code has been scaffolded yet. This repository contains the initial project blueprint, architecture notes, command mapping, security model, roadmap, and contribution guidance that will guide future implementation.
+The project focuses on providing a safe, discoverable, and Microsoft-style desktop experience built on top of officially supported WSL functionality. Rather than replacing the command line, WSL Studio complements it by exposing common management, diagnostics, and configuration workflows through a polished graphical interface.
 
 Inspired by the usability of Docker Desktop while remaining focused entirely on Windows Subsystem for Linux and its official feature set.
 
 > **Note**
 >
 > WSL Studio aims to support officially documented WSL features. Feature availability may vary depending on the installed WSL version and Windows release.
+
+## Project Status
+
+| Component | Status |
+|-----------|--------|
+| Documentation | ✅ |
+| Architecture | ✅ |
+| WinUI Shell | ✅ |
+| WSL Discovery | ✅ |
+| Dashboard | ✅ |
+| Design System | ✅ |
+| Lifecycle Management | 🚧 |
+| Backup & Recovery | ⏳ |
+| Configuration | ⏳ |
 
 ## Vision
 
@@ -27,35 +42,46 @@ WSL has evolved into an essential part of Windows development, but most manageme
 
 WSL Studio aims to simplify those workflows by providing a modern desktop interface that complements—not replaces—the official WSL tools.
 
-## Planned Feature Overview
+## Features
 
-The initial product direction includes:
+### Implemented
 
-- Viewing installed WSL distributions and their state.
-- Starting, stopping, terminating, and launching distributions.
-- Installing, importing, exporting, unregistering, and setting default distributions.
-- Viewing WSL version and distribution configuration where official tooling allows it.
-- Managing common WSL settings through validated configuration workflows.
-- Providing safe flows for backup, export, and destructive operations.
-- Showing command output, operation status, and failure details in a readable way.
-- Offering a modular architecture suitable for future extension.
+- Native WinUI 3 application shell
+- Dashboard overview
+- Read-only WSL distribution discovery
+- Official WSL command runner
+- Dependency injection using Generic Host
+- Clean Architecture
+- Reusable Fluent design system
 
-Feature implementation will be phased. Functionality will be added only when it can be mapped to supported WSL behavior and implemented with appropriate validation and user confirmation.
+### Planned
 
-## Planned Technology Stack
+- WSL Health Center
+- Distribution details
+- Search and filtering
+- Diagnostics viewer
+- Backup and recovery
+- Configuration management
+- Safe lifecycle operations
+- Docker integration
+- VS Code integration
+- Performance monitoring
+- Linux GUI and remote desktop management
 
-WSL Studio is planned to use:
+## Technology Stack
+
+WSL Studio currently uses:
 
 - C#
-- .NET 8 or later
+- .NET 10
 - WinUI 3
 - Windows App SDK
-- SQLite
+- CommunityToolkit.Mvvm
+- Microsoft.Extensions.Hosting
 - xUnit
-- GitHub Actions in a future phase
-- MSIX packaging in a future phase
-
-The exact project structure and package versions will be decided during Phase 1 when application scaffolding begins.
+- SQLite (planned)
+- GitHub Actions (planned)
+- MSIX Packaging (planned)
 
 ## Project Scope
 
@@ -87,40 +113,56 @@ WSL Studio is designed around a few durable principles:
 
 ## Current Status
 
-🚧 **Planning (Phase 0)**
+🚧 **Active Development**
 
-The project is currently focused on architecture, documentation, and repository organization.
+WSL Studio is currently in active development.
 
-Application development will begin after the project structure and design decisions have been finalized.
+Implemented so far:
 
-## Roadmap Summary
+- Native WinUI 3 application shell
+- Clean Architecture solution structure
+- Generic Host dependency injection
+- CommunityToolkit.Mvvm integration
+- Read-only WSL distribution discovery
+- Dashboard overview
+- WSL command execution infrastructure
+- Reusable WinUI design system
+- Comprehensive documentation and Architecture Decision Records (ADRs)
 
-The planned development path is:
+Current work is focused on **Phase 3 — WSL Workspace**, expanding diagnostics, inspection, and developer workflows before introducing lifecycle management operations.
 
-- Phase 0: Repository blueprint and documentation.
-- Phase 1: Solution scaffolding, project boundaries, and baseline application shell.
-- Phase 2: Read-only WSL discovery and distribution overview.
-- Phase 3: Safe distribution lifecycle actions.
-- Phase 4: Import, export, backup, and destructive-action safeguards.
-- Phase 5: Settings, validation, persistence, and diagnostics.
-- Phase 6: Packaging, automated checks, release preparation, and initial public release.
+## Roadmap
+
+- Phase 0 — Planning
+- Phase 1 — Foundation
+- Phase 2 — Core WSL Integration
+- Phase 3 — WSL Workspace
+- Phase 4 — Safe WSL Operations
+- Phase 5 — Backup & Recovery
+- Phase 6 — Configuration
+- Phase 7 — Advanced Integrations
+- Phase 8 — Linux GUI & Remote Desktop
 
 See [docs/roadmap.md](docs/roadmap.md) for the detailed roadmap.
 
-Possible Future Features include:
+## Screenshots
 
-- Live resource monitoring
-- Docker integration
-- VS Code integration
-- Plugin support
-- Backup scheduling
-- Diagnostic report generation
-- Performance benchmarking
+> Screenshots will be updated as development progresses.
+
+### Dashboard
+
+*(Coming soon)*
+
+### Distributions
+
+*(Coming soon)*
 
 ## Architecture
 
 ```text
 WinUI 3
+    │
+Presentation
     │
 Application
     │
@@ -128,31 +170,43 @@ Core
     │
 Infrastructure
     │
-├── WSL (wsl.exe)
-├── PowerShell
-├── Docker
-└── SQLite
+┌─────────────┬─────────────┬──────────────┐
+│   wsl.exe   │ PowerShell  │   SQLite     │
+└─────────────┴─────────────┴──────────────┘
 ```
-
 ## Documentation
 
 - [Project Blueprint](docs/blueprint.md)
 - [Architecture](docs/architecture.md)
-- [Roadmap](docs/roadmap.md)
-- [Command Map](docs/command-map.md)
-- [Security Model](docs/security-model.md)
 - [Architecture Decision Records](docs/adr/)
-- [Contributing](CONTRIBUTING.md)
+- [Roadmap](docs/roadmap.md)
+- [Security Model](docs/security-model.md)
+- [Command Map](docs/command-map.md)
+- [Contributing Guide](CONTRIBUTING.md)
 
 ## Contributing
 
-WSL Studio is in its planning stage, and the architecture is still evolving.
+WSL Studio is under active development, and contributions are welcome.
 
-Thoughtful discussions, architecture reviews, documentation improvements, and WSL expertise are especially valuable at this stage.
+Whether you're interested in improving documentation, refining the architecture, enhancing the WinUI interface, writing tests, or implementing new features, your help is appreciated.
 
-If you're interested in helping shape the project, feel free to open an issue or start a discussion.
+Please review [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
 
-Before contributing, please read [CONTRIBUTING.md](CONTRIBUTING.md).
+## Development Philosophy
+
+WSL Studio follows a quality-first development approach.
+
+Every feature is designed around:
+
+- Official Microsoft APIs and tooling
+- Safe defaults
+- Clear architecture boundaries
+- Comprehensive testing
+- Modern Windows 11 design principles
+- Incremental, reviewable development
+- Long-term maintainability
+
+The project prioritizes correctness, usability, and transparency over rapid feature growth.
 
 ## License
 
