@@ -141,6 +141,7 @@ Infrastructure
 - [Roadmap](docs/roadmap.md)
 - [Command Map](docs/command-map.md)
 - [Security Model](docs/security-model.md)
+- [Architecture Decision Records](docs/adr/)
 - [Contributing](CONTRIBUTING.md)
 
 ## Contributing
