@@ -24,6 +24,12 @@ The initial implementation will target a native Windows application experience r
 - .NET MAUI.
 - A command-line application only.
 
+WPF was considered because it is mature and stable, but it does not align as closely with the modern Windows App SDK direction.
+
+Electron was considered because it is popular for developer tools, but it would add unnecessary runtime weight for a Windows-only native application.
+
+.NET MAUI was considered, but cross-platform support is not a project goal for the desktop app.
+
 ## Consequences
 
 WinUI 3 supports the goal of a modern Windows 11 interface and fits the planned C# and .NET stack. It also aligns with Fluent UI controls and Windows App SDK capabilities.
