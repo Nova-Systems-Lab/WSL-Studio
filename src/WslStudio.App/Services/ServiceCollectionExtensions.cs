@@ -18,11 +18,13 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IWslStatusParser, WslStatusParser>();
         services.AddSingleton<IWslVersionParser, WslVersionParser>();
         services.AddTransient<IWslDistributionDiscoveryService, WslDistributionDiscoveryService>();
+        services.AddTransient<IWslDistributionDetailsService, WslDistributionDetailsService>();
         services.AddTransient<IWslDashboardOverviewService, WslDashboardOverviewService>();
         services.AddTransient<IWslHealthCenterService, WslHealthCenterService>();
 
         services.AddTransient<DashboardViewModel>();
         services.AddTransient<DistributionsViewModel>();
+        services.AddTransient<DistributionDetailsViewModel>();
         services.AddTransient<ConfigurationViewModel>();
         services.AddTransient<BackupsViewModel>();
         services.AddTransient<DiagnosticsViewModel>();
@@ -30,6 +32,7 @@ public static class ServiceCollectionExtensions
 
         services.AddTransient<DashboardPage>();
         services.AddTransient<DistributionsPage>();
+        services.AddTransient<DistributionDetailsPage>();
         services.AddTransient<ConfigurationPage>();
         services.AddTransient<BackupsPage>();
         services.AddTransient<DiagnosticsPage>();

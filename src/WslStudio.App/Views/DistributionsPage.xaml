@@ -44,6 +44,8 @@
                 Grid.Row="1"
                 x:Name="DistributionsList"
                 x:Load="{x:Bind ViewModel.HasDistributions, Mode=OneWay}"
+                IsItemClickEnabled="True"
+                ItemClick="OnDistributionItemClick"
                 ItemsSource="{x:Bind ViewModel.Distributions, Mode=OneWay}"
                 SelectionMode="None">
                 <ListView.Header>
@@ -71,6 +73,7 @@
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
 
                                 <TextBlock Style="{StaticResource ListPrimaryTextBlockStyle}" Text="{x:Bind Name}" />
@@ -84,6 +87,10 @@
                                 <controls:StatusBadge
                                     Grid.Column="3"
                                     Text="{x:Bind DefaultStatus}" />
+                                <SymbolIcon
+                                    Grid.Column="4"
+                                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                    Symbol="Forward" />
                             </Grid>
                         </Border>
                     </DataTemplate>

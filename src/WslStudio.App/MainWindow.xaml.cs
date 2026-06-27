@@ -57,6 +57,7 @@ public sealed partial class MainWindow : Window
         {
             NavigationPageKey.Dashboard => "Dashboard",
             NavigationPageKey.Distributions => "Distributions",
+            NavigationPageKey.DistributionDetails => "Distribution details",
             NavigationPageKey.Configuration => "Configuration",
             NavigationPageKey.Backups => "Backups",
             NavigationPageKey.Diagnostics => "Diagnostics",

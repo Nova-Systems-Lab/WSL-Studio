@@ -1,12 +1,15 @@
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using WslStudio.App.Navigation;
+using WslStudio.App.Services;
 using WslStudio.Application.Wsl;
 
 namespace WslStudio.App.ViewModels;
 
 public sealed partial class DistributionsViewModel(
-    IWslDistributionDiscoveryService distributionDiscoveryService)
+    IWslDistributionDiscoveryService distributionDiscoveryService,
+    INavigationService navigationService)
     : PageViewModelBase(
         "Distributions",
         "View installed WSL distributions using read-only information from official WSL commands.")
@@ -28,6 +31,15 @@ public sealed partial class DistributionsViewModel(
     public bool HasError => !IsLoading && !string.IsNullOrWhiteSpace(ErrorMessage);
 
     public bool IsEmpty => !IsLoading && !HasError && Distributions.Count == 0;
+
+    [RelayCommand]
+    private void OpenDetails(DistributionListItemViewModel? distribution)
+    {
+        if (distribution is not null)
+        {
+            navigationService.NavigateTo(NavigationPageKey.DistributionDetails, distribution.DistributionName);
+        }
+    }
 
     [RelayCommand]
     public async Task LoadAsync(CancellationToken cancellationToken)

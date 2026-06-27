@@ -4,6 +4,7 @@ public enum NavigationPageKey
 {
     Dashboard,
     Distributions,
+    DistributionDetails,
     Configuration,
     Backups,
     Diagnostics,
