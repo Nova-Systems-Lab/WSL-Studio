@@ -18,7 +18,7 @@ public sealed class WslHealthCheckTests
             WslHealthCheckCategory.Wsl,
             WslHealthCheckStatus.Healthy,
             "WSL version is available.",
-            "WSL version: 2.4.13.0",
+            "WSL version: 2.9.3.0",
             "No action is needed.",
             documentationLink,
             metadata);

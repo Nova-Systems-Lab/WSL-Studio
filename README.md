@@ -26,7 +26,10 @@ Inspired by the usability of Docker Desktop while remaining focused entirely on 
 | WSL Discovery | ✅ |
 | Dashboard | ✅ |
 | Design System | ✅ |
-| Lifecycle Management | 🚧 |
+| WSL Health Center | ✅ |
+| Distribution Details | ✅ |
+| WSL Workspace (Phase 3) | 🚧 |
+| Safe Lifecycle Operations | ⏳ |
 | Backup & Recovery | ⏳ |
 | Configuration | ⏳ |
 
@@ -49,6 +52,8 @@ WSL Studio aims to simplify those workflows by providing a modern desktop interf
 - Native WinUI 3 application shell
 - Dashboard overview
 - Read-only WSL distribution discovery
+- Read-only WSL Health Center
+- Read-only distribution details
 - Official WSL command runner
 - Dependency injection using Generic Host
 - Clean Architecture
@@ -56,10 +61,9 @@ WSL Studio aims to simplify those workflows by providing a modern desktop interf
 
 ### Planned
 
-- WSL Health Center
-- Distribution details
 - Search and filtering
 - Diagnostics viewer
+- Diagnostic report export
 - Backup and recovery
 - Configuration management
 - Safe lifecycle operations

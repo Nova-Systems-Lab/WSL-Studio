@@ -32,7 +32,7 @@ public sealed class WslDistributionDetailsServiceTests
         Assert.False(result.NotFound);
         Assert.NotNull(result.Details);
         Assert.Equal(selectedDistribution, result.Details.Distribution);
-        Assert.Equal("5.15.167.4-1", result.Details.KernelVersion);
+        Assert.Equal("6.18.35.2-1", result.Details.KernelVersion);
         Assert.Null(result.Details.Architecture);
         Assert.Null(result.Details.InstallationLocation);
     }
