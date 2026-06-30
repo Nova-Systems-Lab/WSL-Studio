@@ -21,6 +21,7 @@ public static class ServiceCollectionExtensions
         services.AddTransient<IWslDistributionDetailsService, WslDistributionDetailsService>();
         services.AddTransient<IWslDashboardOverviewService, WslDashboardOverviewService>();
         services.AddTransient<IWslHealthCenterService, WslHealthCenterService>();
+        services.AddTransient<IWslEnvironmentService, WslEnvironmentService>();
 
         services.AddTransient<DashboardViewModel>();
         services.AddTransient<DistributionsViewModel>();
@@ -28,6 +29,7 @@ public static class ServiceCollectionExtensions
         services.AddTransient<ConfigurationViewModel>();
         services.AddTransient<BackupsViewModel>();
         services.AddTransient<DiagnosticsViewModel>();
+        services.AddTransient<EnvironmentViewModel>();
         services.AddTransient<SettingsViewModel>();
 
         services.AddTransient<DashboardPage>();
@@ -36,6 +38,7 @@ public static class ServiceCollectionExtensions
         services.AddTransient<ConfigurationPage>();
         services.AddTransient<BackupsPage>();
         services.AddTransient<DiagnosticsPage>();
+        services.AddTransient<EnvironmentPage>();
         services.AddTransient<SettingsPage>();
 
         return services;

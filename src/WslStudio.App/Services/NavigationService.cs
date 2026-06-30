@@ -15,6 +15,7 @@ public sealed class NavigationService(IServiceProvider serviceProvider) : INavig
         [NavigationPageKey.Configuration] = typeof(ConfigurationPage),
         [NavigationPageKey.Backups] = typeof(BackupsPage),
         [NavigationPageKey.Diagnostics] = typeof(DiagnosticsPage),
+        [NavigationPageKey.Environment] = typeof(EnvironmentPage),
         [NavigationPageKey.Settings] = typeof(SettingsPage)
     };
 

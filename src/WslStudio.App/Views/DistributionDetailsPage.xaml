@@ -68,6 +68,7 @@
                 <ItemsRepeater ItemsSource="{x:Bind ViewModel.SummaryCards, Mode=OneWay}">
                     <ItemsRepeater.Layout>
                         <UniformGridLayout
+                            ItemsStretch="Fill"
                             MaximumRowsOrColumns="3"
                             MinItemWidth="220"
                             MinColumnSpacing="{StaticResource CardColumnSpacing}"
@@ -90,6 +91,7 @@
                 <ItemsRepeater ItemsSource="{x:Bind ViewModel.DetailItems, Mode=OneWay}">
                     <ItemsRepeater.Layout>
                         <UniformGridLayout
+                            ItemsStretch="Fill"
                             MinItemWidth="300"
                             MinColumnSpacing="16"
                             MinRowSpacing="16" />

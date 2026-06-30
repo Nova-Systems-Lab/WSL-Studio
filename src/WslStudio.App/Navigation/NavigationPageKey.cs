@@ -8,5 +8,6 @@ public enum NavigationPageKey
     Configuration,
     Backups,
     Diagnostics,
+    Environment,
     Settings
 }

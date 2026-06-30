@@ -61,6 +61,7 @@ public sealed partial class MainWindow : Window
             NavigationPageKey.Configuration => "Configuration",
             NavigationPageKey.Backups => "Backups",
             NavigationPageKey.Diagnostics => "Diagnostics",
+            NavigationPageKey.Environment => "Environment",
             NavigationPageKey.Settings => "Settings",
             _ => "WSL Studio"
         };
