@@ -59,11 +59,11 @@ Every contribution should support these principles:
 
 # Branch Strategy
 
-  Branch             Purpose
-  ------------------ -----------------------
-  `main`             Stable branch
-  `dev`              Active development
-  Feature branches   Individual work items
+  |Branch|Purpose|
+  |------------------|-----------------------|
+  |`main`|Stable branch|
+  |`dev`|Active development|
+  |Feature branches|Individual work items|
 
 Recommended branch names:
 
