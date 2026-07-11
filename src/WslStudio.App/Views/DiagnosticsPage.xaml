@@ -16,19 +16,57 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <StackPanel Spacing="8">
-                <TextBlock Style="{StaticResource PageTitleTextBlockStyle}" Text="{Binding Title}" />
-                <TextBlock Style="{StaticResource PageSubtitleTextBlockStyle}" Text="{Binding Subtitle}" />
+            <Grid ColumnSpacing="{StaticResource SectionColumnSpacing}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Spacing="8">
+                    <TextBlock Style="{StaticResource PageTitleTextBlockStyle}" Text="{Binding Title}" />
+                    <TextBlock Style="{StaticResource PageSubtitleTextBlockStyle}" Text="{Binding Subtitle}" />
+                </StackPanel>
+
+                <StackPanel
+                    Grid.Column="1"
+                    VerticalAlignment="Bottom"
+                    Orientation="Horizontal"
+                    Spacing="8">
+                    <ProgressRing
+                        Width="20"
+                        Height="20"
+                        VerticalAlignment="Center"
+                        IsActive="{x:Bind ViewModel.IsExporting, Mode=OneWay}" />
+                    <DropDownButton Content="Export report" IsEnabled="{x:Bind ViewModel.CanExport, Mode=OneWay}">
+                        <DropDownButton.Flyout>
+                            <MenuFlyout>
+                                <MenuFlyoutItem Text="Markdown (.md)" Command="{x:Bind ViewModel.ExportMarkdownCommand}" />
+                                <MenuFlyoutItem Text="Plain text (.txt)" Command="{x:Bind ViewModel.ExportTextCommand}" />
+                                <MenuFlyoutItem Text="JSON (.json)" Command="{x:Bind ViewModel.ExportJsonCommand}" />
+                            </MenuFlyout>
+                        </DropDownButton.Flyout>
+                    </DropDownButton>
+                </StackPanel>
+            </Grid>
+
+            <StackPanel Grid.Row="1" Spacing="8">
+                <TextBlock
+                    Style="{StaticResource BodySecondaryTextBlockStyle}"
+                    Text="Review the report before sharing it. WSL Studio excludes known sensitive fields, but users should still verify the contents." />
+                <InfoBar
+                    IsOpen="{x:Bind ViewModel.IsExportInfoOpen, Mode=TwoWay}"
+                    Message="{x:Bind ViewModel.ExportInfoMessage, Mode=OneWay}"
+                    Severity="{x:Bind ViewModel.ExportInfoSeverity, Mode=OneWay}" />
             </StackPanel>
 
             <controls:LoadingState
-                Grid.Row="1"
+                Grid.Row="2"
                 x:Name="LoadingState"
                 x:Load="{x:Bind ViewModel.IsLoading, Mode=OneWay}"
                 Message="Running read-only health checks..." />
 
             <controls:EmptyState
-                Grid.Row="1"
+                Grid.Row="2"
                 x:Name="EmptyState"
                 x:Load="{x:Bind ViewModel.IsEmpty, Mode=OneWay}"
                 Title="No health checks available"
@@ -36,14 +74,14 @@
                 Icon="Find" />
 
             <controls:ErrorState
-                Grid.Row="1"
+                Grid.Row="2"
                 x:Name="ErrorState"
                 x:Load="{x:Bind ViewModel.HasError, Mode=OneWay}"
                 Title="Health Center could not load"
                 Message="{x:Bind ViewModel.ErrorMessage, Mode=OneWay}" />
 
             <Grid
-                Grid.Row="1"
+                Grid.Row="2"
                 x:Name="HealthCenterState"
                 x:Load="{x:Bind ViewModel.HasHealthChecks, Mode=OneWay}"
                 RowSpacing="{StaticResource CardRowSpacing}">
