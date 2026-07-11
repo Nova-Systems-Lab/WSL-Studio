@@ -23,20 +23,6 @@ WSL Studio is currently focused on **read-only WSL workspace features**. Mutatin
 
 | Component | Status |
 |-----------|--------|
-<<<<<<< HEAD
-| Documentation | ✅ |
-| Architecture | ✅ |
-| WinUI Shell | ✅ |
-| WSL Discovery | ✅ |
-| Dashboard | ✅ |
-| Design System | ✅ |
-| WSL Health Center | ✅ |
-| Distribution Details | ✅ |
-| WSL Workspace (Phase 3) | 🚧 |
-| Safe Lifecycle Operations | ⏳ |
-| Backup & Recovery | ⏳ |
-| Configuration | ⏳ |
-=======
 | Documentation | ✅ Complete |
 | Architecture | ✅ Complete |
 | WinUI 3 Shell | ✅ Complete |
@@ -58,7 +44,6 @@ WSL Studio is currently focused on **read-only WSL workspace features**. Mutatin
 | Configuration Center | ⏳ Planned |
 
 ---
->>>>>>> origin/main
 
 ## Vision
 
@@ -112,25 +97,6 @@ Current Phase 3 work remains strictly read-only.
 
 ### Implemented
 
-<<<<<<< HEAD
-- Native WinUI 3 application shell
-- Dashboard overview
-- Read-only WSL distribution discovery
-- Read-only WSL Health Center
-- Read-only distribution details
-- Official WSL command runner
-- Dependency injection using Generic Host
-- Clean Architecture
-- Reusable Fluent design system
-
-### Planned
-
-- Search and filtering
-- Diagnostics viewer
-- Diagnostic report export
-- Backup and recovery
-- Configuration management
-=======
 - **Native Windows 11 app shell**
   - WinUI 3
   - Windows App SDK
@@ -206,7 +172,6 @@ Current Phase 3 work remains strictly read-only.
   - Open selected distribution shell
   - No lifecycle changes
 
->>>>>>> origin/main
 - Safe lifecycle operations
   - Start distribution
   - Terminate distribution
