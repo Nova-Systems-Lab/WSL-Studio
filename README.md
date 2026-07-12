@@ -478,6 +478,22 @@ Every feature is designed around:
 
 The project prioritizes correctness, usability, and transparency over rapid feature growth.
 
+---
+
+## Part of Nova Systems Lab
+
+<p align="center">
+  <img
+    src="https://raw.githubusercontent.com/Nova-Systems-Lab/.github/main/profile/assets/nova-systems-lab-horizontal.png"
+    alt="Nova Systems Lab"
+    width="420"
+  >
+</p>
+
+WSL Studio is developed under **Nova Systems Lab**, an independent open-source organization focused on systems software, developer tools, platform integration, and experimental runtime technologies.
+
+---
+
 ## License
 
 This project is licensed under the MIT License.
