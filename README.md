@@ -461,6 +461,18 @@ Helpful contribution areas include:
 
 Please review [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
 
+## Community and Support
+
+For quick questions, community discussion, testing feedback, and contributor coordination, join the Nova Systems Lab Discord server:
+
+[Join Nova Systems Lab on Discord](https://discord.gg/sfFyVyTfX8)
+
+For official project work:
+
+- Use GitHub Discussions for detailed proposals and long-term discussions.
+- Use GitHub Issues for confirmed bugs and actionable tasks.
+- Use Pull Requests for code and documentation changes.
+
 ## Development Philosophy
 
 WSL Studio follows a quality-first development approach.
@@ -477,6 +489,22 @@ Every feature is designed around:
 - Transparent project documentation
 
 The project prioritizes correctness, usability, and transparency over rapid feature growth.
+
+---
+
+## Part of Nova Systems Lab
+
+<p align="center">
+  <img
+    src="https://raw.githubusercontent.com/Nova-Systems-Lab/.github/main/profile/assets/nova-systems-lab-horizontal.png"
+    alt="Nova Systems Lab"
+    width="420"
+  >
+</p>
+
+WSL Studio is developed under **Nova Systems Lab**, an independent open-source organization focused on systems software, developer tools, platform integration, and experimental runtime technologies.
+
+---
 
 ## License
 
